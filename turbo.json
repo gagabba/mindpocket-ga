@@ -1,19 +1,26 @@
 {
-  "$schema": "https://turborepo.dev/schema.json",
-  "ui": "tui",
+  "$schema": "https://turbo.build/schema.json",
+  "globalEnv": [
+    "DATABASE_URL",
+    "BETTER_AUTH_SECRET",
+    "BETTER_AUTH_URL",
+    "BLOB_READ_WRITE_TOKEN",
+    "NEXT_PUBLIC_APP_URL",
+    "OPENAI_API_KEY",
+    "OPENAI_BASE_URL",
+    "DB_HOST",
+    "DB_PORT",
+    "DB_USER",
+    "DB_PASSWORD",
+    "DB_NAME",
+    "DB_SSLMODE",
+    "REDIS_URL",
+    "NODE_ENV",
+    "VERCEL_URL",
+    "VERCEL_ENV"
+  ],
   "tasks": {
-    "build": {
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
-      "dependsOn": ["^build"]
-    },
-    "dev": {
-      "cache": false,
-      "persistent": true
-    },
-    "lint": {},
-    "clean": {
-      "cache": false
-    }
+    "build": { ... },
+    "dev": { ... }
   }
 }
