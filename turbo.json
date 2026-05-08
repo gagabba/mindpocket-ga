@@ -17,10 +17,26 @@
     "REDIS_URL",
     "NODE_ENV",
     "VERCEL_URL",
-    "VERCEL_ENV"
+    "VERCEL_ENV",
+    "TURBO_PLATFORM_ENV_DISABLED"
   ],
   "tasks": {
-    "build": { ... },
-    "dev": { ... }
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**", "dist/**"]
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    },
+    "lint": {
+      "dependsOn": ["^lint"]
+    },
+    "test": {
+      "dependsOn": ["^build"]
+    },
+    "check-types": {
+      "dependsOn": ["^check-types"]
+    }
   }
 }
